@@ -30,7 +30,23 @@ class _PivotPointsState extends State<PivotPoints> {
               SizedBox(height: 10.h,),
               const FormNum(text: Strings.r1, hText: Strings.r1,),
               SizedBox(height: 10.h,),
-              const FormNum(text: Strings.r2, hText: Strings.r2,)
+              const FormNum(text: Strings.r2, hText: Strings.r2,),
+              SizedBox(height: 20.h,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(Strings.s1,style: kFirstN,),
+                  Text(Strings.s2,style: kFirstN,)
+                ],
+              ),
+              SizedBox(height: 20.h,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(Strings.r1,style: kFirstN,),
+                  Text(Strings.r2,style: kFirstN,)
+                ],
+              ),
             ],
           ),
         ),
