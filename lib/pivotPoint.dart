@@ -21,6 +21,7 @@ class _PivotPointsState extends State<PivotPoints> {
   double sI = 0.0;
   double rI = 0.0;
   double sII = 0.0;
+  double rII = 0.0;
 
 
   calcu(){
@@ -33,30 +34,35 @@ class _PivotPointsState extends State<PivotPoints> {
 
 
 
-    double piv = (high + low + close) /3;
-    double sup1 = (2 * average) - high;
-    double res1 = (2 * average) - low;
-    double sup2 = average -(rI - sI);
+    double pivA = high + low + close;
+    double pivAS = pivA /3;
+    String pivS = pivAS.toStringAsFixed(5);
+    double piv = double.parse(pivS);
+
+    double supp1 = 2 * piv;
+    double sup1 = supp1 - high;
+    double res1 = (2 * piv) - low;
+    double sup2 = piv -(res1 - sup1);
+    double res2 = (piv - sup1) + res1;
 
     debugPrint('supp===========$sup1');
     debugPrint('res1===========$res1');
     debugPrint('sup2===========$sup2');
+    debugPrint('piv===========$piv');
+    debugPrint('res2===========$res2');
 
     setState(() {
       average = piv;
       sI = sup1;
       rI = res1;
       sII = sup2;
-      double rII = (average - sI) + rI;
+      rII = res2;
     });
   }
 
 
   @override
   Widget build(BuildContext context) {
-    double ss1 = sI;
-
-
     return Scaffold(
       backgroundColor: kLoanCard,
       body: SafeArea(
@@ -100,9 +106,27 @@ class _PivotPointsState extends State<PivotPoints> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(Strings.r1,style: kFirstN,),
+                  Row(
+                    children: [
+                      Text(Strings.r1,style: kFirstN,),
+                      Text('$rI',style: kFirstN,),
+                    ],
+                  ),
                   SizedBox(width: 10.w,),
-                  Text(Strings.r2,style: kFirstN,)
+                  Row(
+                    children: [
+                      Text(Strings.r2,style: kFirstN,),
+                      Text('$rII',style: kFirstN,),
+                    ],
+                  )
+                ],
+              ),
+              SizedBox(height: 10.h,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(Strings.pivot,style: kFirstN,),
+                  Text('$average',style: kFirstN,),
                 ],
               ),
             ],

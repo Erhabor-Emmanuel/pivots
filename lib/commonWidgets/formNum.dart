@@ -35,9 +35,9 @@ class FormNum extends StatelessWidget {
             controller: controller,
             scrollPadding: EdgeInsets.all(80.r),
             keyboardType: TextInputType.number,
-            inputFormatters: [
-              FilteringTextInputFormatter.digitsOnly,
-            ],
+            // inputFormatters: [
+            //   FilteringTextInputFormatter.digitsOnly,
+            // ],
             decoration:  InputDecoration(
               prefixIconConstraints: const BoxConstraints(maxWidth: 40),
               fillColor: kWhite,
