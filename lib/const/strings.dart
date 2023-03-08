@@ -8,4 +8,5 @@ class Strings{
   static const String high = 'High';
   static const String low = 'Low';
   static const String close = 'Close';
+  static const String calc = 'Calculate';
 }
